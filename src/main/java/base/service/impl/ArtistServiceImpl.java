@@ -56,5 +56,13 @@ public class ArtistServiceImpl implements ArtistService {
         }
     }
 
+    @Override
+    public Artist getArtistById(int id) {
+        for (Artist a : artistRepository.findAllArtist()) {
+            if (a.getId() == id) return a;
+        }
+        return null;
+    }
+
 
 }

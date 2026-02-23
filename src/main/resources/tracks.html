@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracks</title>
+</head>
+<body>
+
+<h1>Tracks</h1>
+
+<p>
+    <a href="./artists">Go to Artists</a>
+</p>
+
+<div>
+    $msg
+</div>
+
+<hr>
+
+<h2>All tracks</h2>
+<ul>
+    $tracks
+</ul>
+
+<hr>
+
+<h2>Create track</h2>
+<form action="./tracks" method="POST">
+    <input type="hidden" name="action" value="create" />
+
+    <input type="text" name="id" placeholder="Id"><br>
+    <input type="text" name="title" placeholder="Title"><br>
+    <input type="text" name="genre" placeholder="Genre"><br>
+    <input type="text" name="duration" placeholder="Duration (seconds)"><br>
+    <input type="text" name="albumTitle" placeholder="Album title"><br><br>
+
+    <label><b>Artists</b> (CTRL/CMD + click to select multiple):</label><br>
+    <select name="artistIds" multiple size="8">
+        $artistsOptions
+    </select>
+    <br><br>
+
+    <button type="submit">Save track</button>
+</form>
+
+<hr>
+
+<h2>Delete track</h2>
+<form action="./tracks" method="POST">
+    <input type="hidden" name="action" value="delete" />
+    <input type="text" name="id" placeholder="Track id"><br>
+    <button type="submit">Delete</button>
+</form>
+
+</body>
+</html>

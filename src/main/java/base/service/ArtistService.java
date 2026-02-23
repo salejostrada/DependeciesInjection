@@ -10,6 +10,7 @@ public interface ArtistService {
     void createArtist(Artist artist);
     Artist getArtistByName(String name );
     void deleteArtist(int id);
+    Artist getArtistById(int id);
 
 
 }
