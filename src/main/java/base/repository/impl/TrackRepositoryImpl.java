@@ -1,11 +1,14 @@
-package base.repository;
+package base.repository.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import base.entity.Track;
+import base.repository.TrackRepository;
+import org.springframework.stereotype.Repository;
 
-public class TrackRepository {
+@Repository
+public class TrackRepositoryImpl implements TrackRepository {
 
     private final List<Track> tracks = new ArrayList<>();
 
@@ -14,7 +17,7 @@ public class TrackRepository {
         return new ArrayList<>(tracks);
     }
 
-    // Crear / Update técnico: si existe mismo id, reemplaza
+    // Crear
     public void save(Track track) {
         for (int i = 0; i < tracks.size(); i++) {
             if (tracks.get(i).getId() == track.getId()) {
@@ -25,7 +28,7 @@ public class TrackRepository {
         tracks.add(track);
     }
 
-    // Buscar por título (equivalente a findByName en Artist)
+    // Buscar por título
     public Track findByTitle(String title) {
         for (Track t : tracks) {
             if (t.getTitle() != null && t.getTitle().equalsIgnoreCase(title)) {
@@ -45,6 +48,11 @@ public class TrackRepository {
             }
         }
         return false;
+    }
+
+    @Override
+    public boolean exists(Track track) {
+        return tracks.contains(track);
     }
 }
 

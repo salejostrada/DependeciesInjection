@@ -1,11 +1,16 @@
-package base.repository;
+package base.repository.impl;
 
 import base.entity.Artist ;
+import base.repository.ArtistRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
 //Create Read Update Delete
-public class ArtistRepositoryImpl {
+
+@Repository
+public class ArtistRepositoryImpl implements ArtistRepository {
 
     private final List<Artist> artists = new ArrayList<>() ;
 
@@ -46,5 +51,10 @@ public class ArtistRepositoryImpl {
             }
         }
         return false;
+    }
+
+    @Override
+    public Boolean exists(Artist artist) {
+        return artists.contains(artist);
     }
 }

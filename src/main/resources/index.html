@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Artists</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<h1>Artists</h1>
+
+
+<h2>Create artist</h2>
+<form action="./artists" method="POST">
+    <input type="hidden" name="action" value="create">
+    <input type="text" name="id" placeholder="Id"><br>
+    <input type="text" name="name" placeholder="Name"><br>
+    <input type="text" name="nationality" placeholder="Nationality"><br>
+    <button type="submit">Save artist</button>
+</form>
+
+<hr>
+
+<h2>Search artist by name</h2>
+<form action="./artists" method="POST">
+    <input type="hidden" name="action" value="search">
+    <input type="text" name="name" placeholder="Artist name"><br>
+    <button type="submit">Search</button>
+</form>
+
+$searchResult
+
+<hr>
+
+<h2>Delete artist by id</h2>
+<form action="./artists" method="POST">
+    <input type="hidden" name="action" value="delete">
+    <input type="text" name="id" placeholder="Artist id"><br>
+    <button type="submit">Delete</button>
+</form>
+
+<hr>
+
+<h2>All artists</h2>
+<ol>
+    $artists
+</ol>
+
+</body>
+</html>
